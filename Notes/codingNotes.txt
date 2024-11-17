@@ -1,0 +1,21 @@
+Since (ai+aj)modx=0
+, it follows that (aimodx+ajmodx)modx=0
+, which implies that aimodx+ajmodx
+ is either x
+ or 0
+. Therefore, for some j
+, this holds true if aimodx=(x−ajmodx)modx
+.
+
+Since (ai−aj)mody=0
+, it follows that aimody−ajmody=0
+, which implies that aimody=ajmody
+.
+
+
+for find if there exits or not a subarray such that the sum of the subarray is 0 
+then u can use the hash map + prefix sum methoed 
+caluclate the perfix sum 
+update teh hashmap if the prefix sum is not already presnet or is not 0 
+
+then u would now if the value ever comes to 0 or if the same vlaue reqpest tehne there must exits a sequxce whose sum is 0 
