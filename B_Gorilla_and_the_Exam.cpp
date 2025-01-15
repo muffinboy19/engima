@@ -34,27 +34,25 @@ using ld = long double;
 //Gaurav_Chhetri
 void solve(){
 
-    ll n;cin>>n;
-    vector<ll> prf(n);
+    ll n,k;cin>>n>>k;
     ll a[n];
-    ll sum=0;
+    set<int>s;
+    map<int,int>m;
     for(int i=0;i<n;i++){
         cin>>a[i];
-        if(i%2==0)a[i]*=-1;
-        sum+=a[i];
-        prf[i] = sum;
+        m[a[i]]++;
+        s.insert(a[i]);
     }
-    set<int> s;
-    for(int i=0;i<n;i++){
-        if(prf[i]==0 || s.find(prf[i])!=s.end()){
-            cout<<"YES"<<endl;
-            return;
+    int remove = 0;
+    for(auto it:m){
+        cout<<it.first<<" "<<it.second<<endl;
+        if(k>=it.second){
+            k-=it.second;
+            remove++;
         }
     }
-    cout<<"NO"<<endl;
-    return;
-    
-
+    if(remove==s.size()){cout<<1<<endl;return;}
+    cout<<s.size()-remove<<endl;
 
 }
 int main(){

@@ -9,10 +9,10 @@ using ld = long double;
 #define p(v) for(auto it:v)cout<<it<<" ";cout<<e;
 #define fi first
 #define se second
+#define ce cout<<"\n"
 #define ia(a,n) long long int n;cin>>n;long long int a[n];for(int i=0;i<n;i++){cin>>a[i];}
 #define YES cout<<"YES"<<endl;
 #define NO cout<<"NO"<<endl;
-#define de  cout<<"*****"<<endl;
 #define pob pop_back
 #define sz(x) (x.size())
 #define all(x) (x).begin(), (x).end()
@@ -22,41 +22,28 @@ using ld = long double;
 #define fo(n)       for(int i = 0;i<n;i++)
 #define test(t)     int t; cin >> t; while(t--)
 #define e           "\n"
-#define ce          cout<<"\n"
-#define da(a,n)  long long int a[n];for(int i=0;i<n;i++){cin>>a[i];}
 #define re           return
 #define fast        ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 #define pr          pair<int,int> 
 #define input(a) for(auto &it:a)cin>>it;
-#define matrix(n,m) ll n,m;cin>>n>>m;ll mat[n][m];for(int i=0;i<n;i++){for(int j=0;j<m;j++){cin>>mat[i][j];}}
+#define matrix(n,m) ll n,m;cin>>n>>m;ll mat[n][m];for(inti=0;i<n;i++){for(intj=0;j<m;j++){cin>>mat[i][j];}}
 #define u 1000000007
 
 //Gaurav_Chhetri
 void solve(){
 
-    ll n,x,y;cin>>n>>x>>y;
-    ll a[n];
-    for(ll i=0;i<n;i++){
-        cin>>a[i];
-    }
-    ll  ans = 0;
-    map<pair<ll,ll>,ll>freq;
-    for(auto it : a){
-        ll xx = it % x;
-        ll yy = it % y ;
-
-        pair<ll,ll> target = {(x - xx )%x , yy};
-        ans+= freq[target];
-        freq[{xx,yy}]++;
-    }
+    ll x;cin>>x;
+    // if(x==0)return ;
+    ll ans = 24-x;
     cout<<ans<<endl;
+    return;
+
+
 }
 int main(){
 fast
-test(t){
     solve();
     cout.flush();
  
-}
     return 0;
 }

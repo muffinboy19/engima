@@ -32,61 +32,27 @@ using ld = long double;
 #define u 1000000007
 
 //Gaurav_Chhetri
-bool isSafe(vector<vector<char>>&bd,int i,int j){
-    int jLeft = j;
-    int jRight = j;
-    while(i>=0){
-        if(bd[i][j]=='1' || ( jLeft >= 0 && bd[i][jLeft]=='1' ) || (jRight<8 &&  bd[i][jRight]=='1' )){
-            return false;
-        }
-
-        i--;
-        jLeft--;
-        jRight++;
-    }
-    return true;
-}
-int func(vector<vector<char>>&bd,int i){
-    if(i==8){
-        return 1;   
-    }
-    int count =0;
-    for(int j =0;j<8;j++){
-        if(isSafe(bd,i,j) && bd[i][j]!='*'){
-            bd[i][j]='1';
-            count+=func(bd,i+1);
-            bd[i][j]='.';
-        }
-    }
-
-    return count;
-}
 void solve(){
-    vector<vector<char>>board;
-    for(int i=0;i<8;i++){
-        string a;cin>>a;
-        vector<char>row(a.begin(),a.end());
-        board.push_back(row);
+    ll n;cin>>n;
+    string s;cin>>s;
+    map<char,int> m;
+    for(auto it:s){
+        m[it]++;
     }
-    // for(auto it:board){
-    //     for(auto jt:it){
-    //         cout<<jt<<" ";
-    //     }
-    //     cout<<endl;
-    // }
-    // ce;
-    cout<<func(board,0)<<endl;
-
-
-
+    if(m['1']==n || m['0']==n){
+        cout<<n<<endl;
+        return;
+    }
+    cout<<1<<endl;
+    return;
 
 }
 int main(){
 fast
-// test(t){
+test(t){
     solve();
     cout.flush();
  
-// }
+}
     return 0;
 }
