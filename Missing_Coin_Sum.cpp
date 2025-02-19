@@ -32,15 +32,25 @@ using ld = long double;
 //Gaurav_Chhetri
 void solve(){
 
-    ll x;cin>>x;
-    // if(x==0)return ;
-    ll ans = 24-x;
-    cout<<ans<<endl;
-    return;
+    ia(a,n);
+    sort(a,a+n);
+    long long int  prev =1;
+    long long int  curr = 0;
+    for(long long int  i=0;i<n;i++){
+        if(prev < a[i]){
+            cout<<prev;
+            return;
+        }
+
+        curr  = prev + a[i];
+        prev = curr;
+
+    }
+    cout<<prev<<endl;
 
 
 }
-int main(){
+int  main(){
 fast
     solve();
     cout.flush();

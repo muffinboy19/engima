@@ -33,17 +33,16 @@ using ld = long double;
 
 //Gaurav_Chhetri
 void solve(){
-    ll n;cin>>n;
+
+
     string s;cin>>s;
-    map<char,int> m;
-    for(auto it:s){
-        m[it]++;
+    for(int i=0;i<s.size();i++){
+        if(s[i]==s[i+1]){
+            cout<<1<<endl;
+            return;
+        }
     }
-    if(m['1']==n || m['0']==n){
-        cout<<n<<endl;
-        return;
-    }
-    cout<<1<<endl;
+    cout<<s.size()<<endl;
     return;
 
 }

@@ -31,14 +31,58 @@ using ld = long double;
 
 //Gaurav_Chhetri
 void solve(){
-    string s;
-    cin>>s;
-    string ans = s.substr(0,1);
-    ans+="UPC";
-    cout<<ans<<endl;;
-    return;
-    cout<<s[0]+"UPC"<<endl;
-    return;
+
+
+    ll totalchildren,stepsize ;
+    cin>>totalchildren>>stepsize;
+
+
+    /// here awe are going to store the  chilren in gropu os srqt(ccount of them ) // 
+    vector<vector<int>> groups;
+
+    int groupsize= sqrt(totalchildren);
+    int currentgroup = 0;
+    int currentindex =0;
+    int childcount =0;
+
+
+    vector<int> tempgroup;// before we push it hte int hegroupus 
+
+    for(int i=1;i<=totalchildren;i++){
+        if(childcount > groupsize){
+            childcount = 0;
+            groups.push_back(tempgroup);
+            tempgroup.clear();
+        }
+
+        tempgroup.push_back(i);
+        childcount++;
+    }
+
+    // now we have chilrencd in groupsize number of gropsp in teh group vector
+
+    if(!tempgroup.empty()){
+        // if not empty then put it back in the gourp
+        groups.push_backk(tempgroup);
+    }
+
+    // dgbug 
+
+    for(auto it:groups){
+        for(auto jt:it){
+
+            cout<<jt<<" ";
+        }
+        cout<<endl;
+    }
+
+
+    // ittreate tiiill al lthechilrdne are out 
+
+    for(int i=0;i<totalchildren;i++){
+        int reminingsteps = stepsize  % (totalchildren-i); 
+    }
+
 
 }
 int main(){

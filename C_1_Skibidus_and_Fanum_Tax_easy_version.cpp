@@ -32,33 +32,25 @@ using ld = long double;
 #define u 1000000007
 
 //Gaurav_Chhetri
-int onesComplement(int num) {
-    int significantBits = floor(log2(num)) + 1; // Number of significant bits
-    int mask = (1 << significantBits) - 1;     // Create a mask with all 1s in the significant bit range
-    return (~num) & mask;                      // Flip the bits and mask to significant bits
-}
 void solve(){
-int l, r;
-    cout << "Enter the range [l, r]: ";
-    cin >> l >> r;
 
-    int largestNum = -1; // To store the largest number with valid 1's complement
+    ll n,m;cin>>n>>m;
 
-    // Iterate through the range to find the largest valid number
-    for (int num = r; num >= l; --num) {
-        int complement = onesComplement(num);
-        if (complement >= l && complement <= r) { // Check if complement is within the range
-            largestNum = num;
-            break; // Since we are going from r to l, we stop at the first valid number
+    ll a[n];for(int i=0;i<n;i++)cin>>a[i];
+    int alpha;cin>>alpha;
+    for(int i=0;i<n;i++){
+        a[i] = min(a[i],alpha-a[i]);
+        if(a[i] > a[i+1]){
+            cout<<"NO"<<endl;
+            return;
         }
-    }
 
-    if (largestNum == -1) {
-        cout << "No number found in the range where both the number and its complement exist." << endl;
-    } else {
-        cout << "Largest number: " << largestNum << endl;
-        cout << "Its 1's complement: " << onesComplement(largestNum) << endl;
+        cout<<a[i]<<" ";
     }
+    cout<<"YES"<<endl;
+    return;
+
+
 }
 int main(){
 fast

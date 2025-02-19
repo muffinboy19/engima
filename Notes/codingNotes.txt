@@ -1,3 +1,5 @@
+
+
 Since (ai+aj)modx=0
 , it follows that (aimodx+ajmodx)modx=0
 , which implies that aimodx+ajmodx
@@ -19,3 +21,7 @@ caluclate the perfix sum
 update teh hashmap if the prefix sum is not already presnet or is not 0 
 
 then u would now if the value ever comes to 0 or if the same vlaue reqpest tehne there must exits a sequxce whose sum is 0 
+
+
+in finding pair which have a sum x the two pointer approch is more faster than the map approch 
+
