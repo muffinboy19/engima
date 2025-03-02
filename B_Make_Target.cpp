@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 using namespace std;
 using ll =  long long int;
@@ -31,26 +32,41 @@ using ld = long double;
 
 //Gaurav_Chhetri
 void solve(){
+    ll n;cin>>n;
+    char mat[n+1][n+1];
+    for(int i=1;i<=n;i++){
+        int j =  n+1-i;
+        // cout<<i<<" "<<j<<endl;
+        if(i <= j){
+            char box;
+            if(i%2!=0){
+                box='#';
+            } 
+            else box='.';    
+            // cout<<i<<" "<<j<<box<<endl;
 
-    ia(a,n);
-    sort(a,a+n);
-    long long int  prev =1;
-    long long int  curr = 0;
-    for(long long int  i=0;i<n;i++){
-        if(prev < a[i]){
-            cout<<prev;
-            return;
+            for(int k = i ;k<=j;k++){
+                mat[k][i] = box;
+                mat[k][j] = box;
+            }
+            for(int k = i ;k<=j;k++){
+                mat[i][k] = box;
+                mat[j][k] = box;
+            }
         }
-
-        curr  = prev + a[i];
-        prev = curr;
-
     }
-    cout<<prev<<endl;
+
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=n;j++){
+            cout<<mat[i][j];
+        }
+        cout<<endl;
+    }
+    return;
 
 
 }
-int  main(){
+int main(){
 fast
     solve();
     cout.flush();

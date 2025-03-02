@@ -34,16 +34,41 @@ using ld = long double;
 //Gaurav_Chhetri
 void solve(){
 
+    ll n,x,k;
+    cin>>n>>x>>k;
+    string s;
+    cin>>s;
 
-    string s;cin>>s;
-    for(int i=0;i<s.size();i++){
-        if(s[i]==s[i+1]){
-            cout<<1<<endl;
-            return;
+
+    map<char,int> m;
+    m['L']=-1;
+    m['R']=1;
+
+    for(int i=0;i<n;i++){
+        x+=m[s[i]];
+        k--;
+        if(x==0)break;
+    }
+
+    if(x){
+        cout<<0<<endl;
+        return;
+    }
+    ll ish =-1,ans=1;
+    for(int i=0;i<n;i++){
+        x+=m[s[i]];
+        if(x==0){
+            ish=i+1;
+            break;
         }
     }
-    cout<<s.size()<<endl;
+    if(ish!=-1){
+        ans+=(k/ish);
+    }
+    cout<<ans<<endl;
     return;
+
+
 
 }
 int main(){

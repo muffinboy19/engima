@@ -8,7 +8,8 @@
     "xutility": "cpp",
     "initializer_list": "cpp",
     "utility": "cpp",
-    "limits": "cpp"
+    "limits": "cpp",
+    "valarray": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

@@ -31,24 +31,60 @@ using ld = long double;
 #define matrix(n,m) ll n,m;cin>>n>>m;ll mat[n][m];for(int i=0;i<n;i++){for(int j=0;j<m;j++){cin>>mat[i][j];}}
 #define u 1000000007
 
+
+bool check(ll mid, string s,ll a[],ll k,ll n){
+    ll maxpenalty = mid;
+    ll wrongBs =0;
+    ll numberofoperation =0;
+    bool insegment = false;
+
+    for(ll i=0;i<n;i++){
+        if(s[i]=='R' and a[i] > maxpenalty){
+            /// this ccelll is red
+            // but its 
+
+            if(wrongBs >0){
+                numberofoperation++;
+                wrongBs=0;
+            }
+        }
+        if(s[i]=='B' and a[i] > maxpenalty){
+            wrongBs++;
+        }
+    }
+
+
+    if(wrongBs >0)numberofoperation++;
+    return numberofoperation <= k;
+}
 //Gaurav_Chhetri
 void solve(){
 
-    ll n,m;cin>>n>>m;
-
-    ll a[n];for(int i=0;i<n;i++)cin>>a[i];
-    int alpha;cin>>alpha;
+    ll n,k;
+    cin>>n>>k;
+    string s;cin>>s;
+    ll a[n];
     for(int i=0;i<n;i++){
-        a[i] = min(a[i],alpha-a[i]);
-        if(a[i] > a[i+1]){
-            cout<<"NO"<<endl;
-            return;
-        }
-
-        cout<<a[i]<<" ";
+        cin>>a[i];
     }
-    cout<<"YES"<<endl;
-    return;
+
+    ll low = 0;
+    ll high = *max_element(a,a+n);
+
+    while(high - low > 1 ){
+
+        ll mid= (low+high)/2;
+        if(check(mid,s,a,k,n)){
+            high = mid;
+        }
+        else{
+            low = mid;
+        }
+    }
+
+    cout<<(check(low,s,a,k,n)?low:high)<<endl;
+
+
 
 
 }

@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 using namespace std;
 using ll =  long long int;
@@ -31,26 +32,32 @@ using ld = long double;
 
 //Gaurav_Chhetri
 void solve(){
-
-
     ll n;cin>>n;
-    vector<int> index(n+1);
-    for(int i=1;i<=n;i++){
-        ll x;cin>>x;
-        index[x] =i;
+    ll a[n];
+    for(int i=0;i<n;i++){
+
+        cin>>a[i];
     }
-    ll val = 1;
-    ll ct =1;
-    for(int i=1;i<=n;i++){
-        if(val>index[i]){
-            ct++;
+    set<ll>s;
+    ll ans= INT_MAX;
+    ll r = 0,l=0;
+    while(r<n){
+        if(s.count(a[r])){
+            // it is theref
+            // cout<<l<<" "<<r<<" "<<s.count(a[r])<<endl;
+            while(l<r && s.count(a[r])){
+                // cout<<r-l+1<<endl;
+                ans=min(r-l+1,ans);
+                s.erase(a[l]);
+                l++;
+            }
         }
-        val = index[i];
-    } 
-    cout<<ct<<endl;
+        s.insert(a[r]);
+        r++;
+    }
+    cout<<((ans==INT_MAX)?-1:ans)<<endl;
     return;
 
-    
 
 }
 int main(){
